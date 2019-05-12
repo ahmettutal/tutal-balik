@@ -248,7 +248,7 @@ textarea.input {
 \*----------------------------*/
 
 .section {
-  padding-top: 30px;
+  padding-top: 5px;
   padding-bottom: 30px;
 }
 
@@ -487,7 +487,7 @@ textarea.input {
   padding: 15px;
   display: block;
   text-transform: uppercase;
-  background: #F8694A;
+  background: #3a5dab;
   color: #FFF;
   font-weight: 700;
 }
@@ -536,7 +536,7 @@ textarea.input {
 
 .category-nav .category-list>li>a {
   display: block;
-  padding: 15px;
+  padding: 16px;
   text-transform: uppercase;
 }
 
