@@ -29,8 +29,8 @@
                 <ul class="nav side-menu">
                     <li><a><i class="fa fa-cogs"></i> Ürün Yönetimi <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="${pageContext.servletContext.contextPath}/categories">Ürün Kategorileri</a></li>
-                            <li><a href="${pageContext.servletContext.contextPath}/products">Ürünler</a></li>
+                            <li><a href="${pageContext.servletContext.contextPath}/admin/categories">Ürün Kategorileri</a></li>
+                            <li><a href="${pageContext.servletContext.contextPath}/admin/products">Ürünler</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>

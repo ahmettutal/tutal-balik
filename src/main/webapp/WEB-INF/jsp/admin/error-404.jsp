@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,9 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-            <h1>Tutal Balık Av Malzemeleri</h1>
+            <h1>Bir şeyler ters gitti!</h1>
+            <h2>Mühendislerimiz çalışıyor :P</h2>
+            <p>NOT_FOUND - ${message}</p>
         </div>
         <!-- /page content -->
 

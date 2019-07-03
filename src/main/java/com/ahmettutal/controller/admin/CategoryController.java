@@ -1,17 +1,20 @@
 package com.ahmettutal.controller.admin;
 
+import com.ahmettutal.core.AdminController;
+import com.ahmettutal.exception.InvalidCategoryException;
 import com.ahmettutal.model.ProductCategory;
 import com.ahmettutal.service.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Controller
-@RequestMapping("categories")
+@AdminController
 public class CategoryController {
 
     @Autowired
@@ -19,7 +22,7 @@ public class CategoryController {
 
     private static final Long COMPANY = 1000L;
 
-    @GetMapping
+    @GetMapping("categories")
     String list(Model model) {
 
         model.addAttribute("categories", service.findAllByCompanyId(COMPANY));
@@ -27,7 +30,7 @@ public class CategoryController {
         return "admin/categories";
     }
 
-    @GetMapping("new")
+    @GetMapping("categories/new")
     String newRecord(Model model) {
 
         model.addAttribute("category", new ProductCategory());
@@ -36,7 +39,7 @@ public class CategoryController {
         return "admin/category";
     }
 
-    @GetMapping("{id}")
+    @GetMapping("categories/{id}")
     String edit(Model model, @PathVariable Long id) {
 
         model.addAttribute("category", service.findById(id));
@@ -50,8 +53,12 @@ public class CategoryController {
         return "admin/category";
     }
 
-    @PostMapping("save")
-    String save(@ModelAttribute("category") ProductCategory category) {
+    @PostMapping("categories/save")
+    String save(@ModelAttribute("category") ProductCategory category) throws InvalidCategoryException {
+
+        if (category.getParent() != null && category.getParent().getParent() != null) {
+            throw new InvalidCategoryException("Üst Kategorisi olan bir kategoriyi Üst kategori seçemezsin");
+        }
 
         if (null != category.getId()) {
             ProductCategory byId = service.findById(category.getId());
@@ -64,7 +71,7 @@ public class CategoryController {
             service.save(category, COMPANY);
         }
 
-        return "redirect:/categories";
+        return "redirect:/admin/categories";
     }
 
 }
