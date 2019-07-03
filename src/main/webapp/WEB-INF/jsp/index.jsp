@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -350,10 +351,14 @@
                             </div>
                         </div>
                     </li>
-                    </li>
                     <li><a href="#">ÇAPARİLER VE KÖSTEKLER</a></li>
                     <li><a href="#">KAMP MALZEMELERİ</a></li>
-                    <li><a href="#"></a></li>
+
+                    <c:forEach var="category" items="${leftCategories}">
+
+                        <li><a href="category/${category.id}">${category.name}</a></li>
+
+                    </c:forEach>
 
 
                 </ul>
