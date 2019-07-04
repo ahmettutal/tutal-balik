@@ -20,6 +20,56 @@
                 <span class="category-header">Kategori <i class="fa fa-list"></i></span>
                 <ul class="category-list">
 
+                    <c:forEach var="category" items="${leftCategories}">
+
+                        <li class="dropdown side-dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    ${category.name}
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                            <div class="custom-menu">
+
+                                <div class="row">
+
+
+                                    <div class="col-md-8">
+
+                                        <div class="row">
+
+                                            <c:forEach var="subCategory" items="${subCategories.get(category.id)}">
+
+                                                <div class="col-md-6">
+                                                    <ul class="list-links">
+                                                        <li>
+                                                            <h3 class="list-links-title"></h3></li>
+                                                        <li><a href="#">${subCategory.name}</a></li>
+                                                    </ul>
+                                                    <hr>
+                                                    <hr class="hidden-md hidden-lg">
+                                                </div>
+
+                                            </c:forEach>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-4 hidden-sm hidden-xs">
+                                        <a class="banner banner-2" href="#">
+                                            <img src="/img/kamış.jpg" alt="">
+                                            <div class="banner-caption">
+
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                    </c:forEach>
+
                     <li class="dropdown side-dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">KAMIŞLAR <i
                                 class="fa fa-angle-right"></i></a>
@@ -353,12 +403,6 @@
                     </li>
                     <li><a href="#">ÇAPARİLER VE KÖSTEKLER</a></li>
                     <li><a href="#">KAMP MALZEMELERİ</a></li>
-
-                    <c:forEach var="category" items="${leftCategories}">
-
-                        <li><a href="category/${category.id}">${category.name}</a></li>
-
-                    </c:forEach>
 
 
                 </ul>

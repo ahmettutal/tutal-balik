@@ -32,7 +32,8 @@
                                 <table class="table table-striped jambo_table">
                                     <thead>
                                     <tr class="headings">
-                                        <th class="column-title"></th>
+                                        <th class="column-title" width="99"></th>
+                                        <th class="column-title" width="99"></th>
                                         <th class="column-title">İsim</th>
                                         <th class="column-title">Üst Kategori</th>
                                     </tr>
@@ -44,6 +45,7 @@
 
                                         <tr class="even pointer">
                                             <td><a href="categories/${category.id}"><i class="fa fa-edit"></i> Düzenle</a></td>
+                                            <td><a href="categories/delete/${category.id}"><i class="fa fa-remove"></i> Sil</a></td>
                                             <td><c:out value="${category.name}"/></td>
                                             <td><c:out value="${category.parent.name}"/></td>
                                         </tr>

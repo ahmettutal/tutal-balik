@@ -53,4 +53,4 @@
 <%--<script src="/js/dropzone.js"></script>--%>
 
 <!-- Custom Theme Scripts -->
-<script src="/admin/js/custom.min.js"></script>
+<script src="/admin/js/custom.js"></script>

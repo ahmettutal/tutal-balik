@@ -10,4 +10,8 @@ public interface ProductCategoryRepository extends BaseRepository<ProductCategor
 
     List<ProductCategory> findAllByCompanyId(Long companyId);
 
+    List<ProductCategory> findAllByParent(ProductCategory parent);
+
+    List<ProductCategory> findAllByCompanyIdAndParent(Long companyId, ProductCategory parent);
+
 }

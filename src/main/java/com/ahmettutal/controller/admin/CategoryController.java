@@ -34,9 +34,21 @@ public class CategoryController {
     String newRecord(Model model) {
 
         model.addAttribute("category", new ProductCategory());
-        model.addAttribute("categories", service.findAllByCompanyId(COMPANY));
+        List<ProductCategory> categories = service.findAllByCompanyId(COMPANY);
+
+        if (null != categories) {
+            model.addAttribute("categories", categories.stream().filter(c -> c.getParent() == null).collect(Collectors.toList()));
+        }
 
         return "admin/category";
+    }
+
+    @GetMapping("categories/delete/{id}")
+    String delete(Model model, @PathVariable Long id) {
+
+        service.delete(id);
+
+        return "redirect:/admin/categories";
     }
 
     @GetMapping("categories/{id}")
@@ -47,7 +59,7 @@ public class CategoryController {
         List<ProductCategory> categories = service.findAllByCompanyId(COMPANY);
 
         if (null != categories) {
-            model.addAttribute("categories", categories.stream().filter(c -> !c.getId().equals(id)).collect(Collectors.toList()));
+            model.addAttribute("categories", categories.stream().filter(c -> !c.getId().equals(id) && c.getParent() == null).collect(Collectors.toList()));
         }
 
         return "admin/category";

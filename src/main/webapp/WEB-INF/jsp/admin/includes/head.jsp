@@ -28,5 +28,5 @@
 <%--    <link href="/css/dropzone.min.css" rel="stylesheet">--%>
 
     <!-- Custom Theme Style -->
-    <link href="/admin/css/custom.min.css" rel="stylesheet">
+    <link href="/admin/css/custom.css" rel="stylesheet">
 </head>
