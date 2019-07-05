@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "PRODUCT_CATEGORY")
-public class ProductCategory extends AuditModel {
+public class Category extends AuditModel {
 
     @Id
     @GeneratedValue(generator = "product_category_generator")
@@ -19,7 +19,7 @@ public class ProductCategory extends AuditModel {
     private Company company;
 
     @OneToOne
-    private ProductCategory parent;
+    private Category parent;
 
     public Long getId() {
         return id;
@@ -45,11 +45,11 @@ public class ProductCategory extends AuditModel {
         this.company = company;
     }
 
-    public ProductCategory getParent() {
+    public Category getParent() {
         return parent;
     }
 
-    public void setParent(ProductCategory parent) {
+    public void setParent(Category parent) {
         this.parent = parent;
     }
 }

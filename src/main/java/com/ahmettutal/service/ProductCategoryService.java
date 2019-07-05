@@ -1,7 +1,7 @@
 package com.ahmettutal.service;
 
 import com.ahmettutal.exception.ResourceNotFoundException;
-import com.ahmettutal.model.ProductCategory;
+import com.ahmettutal.model.Category;
 import com.ahmettutal.repository.CompanyRepository;
 import com.ahmettutal.repository.ProductCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +19,24 @@ public class ProductCategoryService {
     private CompanyRepository companyRepository;
 
 
-    public List<ProductCategory> findAllByCompanyId(Long companyId) {
+    public List<Category> findAllByCompanyId(Long companyId) {
         return repository.findAllByCompanyId(companyId);
     }
 
-    public List<ProductCategory> findAllByParent(ProductCategory parent) {
+    public List<Category> findAllByParent(Category parent) {
         return repository.findAllByParent(parent);
     }
 
-    public List<ProductCategory> findAllByCompanyIdAndParent(Long companyId, ProductCategory parent) {
+    public List<Category> findAllByCompanyIdAndParent(Long companyId, Category parent) {
         return repository.findAllByCompanyIdAndParent(companyId, parent);
     }
 
-    public ProductCategory findById(Long id) {
+    public Category findById(Long id) {
 
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Entity not found with id " + id));
     }
 
-    public ProductCategory save(ProductCategory category, Long companyId) {
+    public Category save(Category category, Long companyId) {
 
         category.setCompany(companyRepository.getOne(companyId));
 

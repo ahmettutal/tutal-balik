@@ -22,7 +22,7 @@ public class Product extends AuditModel {
     private Company company;
 
     @ManyToOne
-    private ProductCategory category;
+    private Category category;
 
     private String description;
 
@@ -57,11 +57,11 @@ public class Product extends AuditModel {
         this.company = company;
     }
 
-    public ProductCategory getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(ProductCategory category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

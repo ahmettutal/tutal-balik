@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -28,7 +29,7 @@
 
                             <br/>
                             <form:form method="POST" class="form-horizontal form-label-left"
-                                       action="save" modelAttribute="category">
+                                       action="save" modelAttribute="category" enctype="multipart/form-data">
 
                                 <form:hidden path="id"/>
 
@@ -51,6 +52,13 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Yeni Resim
+                                        Yükle </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input id="files" type="file" name="files" />
+                                    </div>
+                                </div>
 
                                 <div class="ln_solid"></div>
 
@@ -66,6 +74,35 @@
                     </div>
                 </div>
             </div>
+
+            <div class="ln_solid"></div>
+
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>Yüklediğiniz Resimler</h2>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+
+                            <c:forEach var="picture" items="${pictures}">
+                                <div class="col-md-3">
+                                    <a href="delete-image/${picture.category.id}/${picture.id}" class="btn btn-app"><i
+                                            class="fa fa-close"></i>Sil</a>
+                                    <img src="../../categoryImages/${picture.category.id}/${picture.name}"
+                                         class="img-circle profile_img" height="75" width="75">
+                                </div>
+                            </c:forEach>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <!-- /page content -->
 

@@ -1,20 +1,19 @@
 package com.ahmettutal.controller.admin;
 
 import com.ahmettutal.core.AdminController;
-import com.ahmettutal.model.Picture;
 import com.ahmettutal.model.Product;
-import com.ahmettutal.repository.PictureRepository;
 import com.ahmettutal.service.ProductCategoryService;
 import com.ahmettutal.service.ProductService;
+import com.ahmettutal.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
+
+import static com.ahmettutal.util.Constants.COMPANY_ID;
+import static com.ahmettutal.util.Constants.UPLOAD_DIR_PRODUCT;
 
 @AdminController
 public class ProductController {
@@ -26,19 +25,16 @@ public class ProductController {
     private ProductCategoryService categoryService;
 
     @Autowired
-    private PictureRepository pictureRepository;
+    private PictureService pictureService;
 
 
     @Autowired
     private HttpServletRequest request;
 
-    public static final String UPLOAD_DIR = "/uploads/";
-    private static final Long COMPANY = 1000L;
-
     @GetMapping("products")
     String list(Model model) {
 
-        model.addAttribute("products", service.findAllByCompanyId(COMPANY));
+        model.addAttribute("products", service.findAllByCompanyId(COMPANY_ID));
 
         return "admin/products";
     }
@@ -47,17 +43,17 @@ public class ProductController {
     String newRecord(Model model) {
 
         model.addAttribute("product", new Product());
-        model.addAttribute("categories", categoryService.findAllByCompanyId(COMPANY));
+        model.addAttribute("categories", categoryService.findAllByCompanyId(COMPANY_ID));
 
         return "admin/product";
     }
 
-    @GetMapping("{id}")
+    @GetMapping("products/{id}")
     String edit(Model model, @PathVariable Long id) {
 
         model.addAttribute("product", service.findById(id));
-        model.addAttribute("pictures", pictureRepository.findAllByProductId(id));
-        model.addAttribute("categories", categoryService.findAllByCompanyId(COMPANY));
+        model.addAttribute("pictures", pictureService.findAllByProductId(id));
+        model.addAttribute("categories", categoryService.findAllByCompanyId(COMPANY_ID));
 
         return "admin/product";
     }
@@ -65,21 +61,7 @@ public class ProductController {
     @GetMapping("products/delete-image/{productId}/{pictureId}")
     String deleteImage(Model model, @PathVariable Long productId, @PathVariable Long pictureId) {
 
-        try {
-            Picture picture = pictureRepository.findById(pictureId).orElse(null);
-            pictureRepository.deleteById(pictureId);
-
-            String uploadFolder = request.getServletContext().getRealPath(UPLOAD_DIR);
-
-            File file = new File(uploadFolder + "/" + productId + "/" + picture.getName());
-            file.delete();
-
-        } catch (Exception e) {
-        }
-
-        model.addAttribute("product", service.findById(productId));
-        model.addAttribute("pictures", pictureRepository.findAllByProductId(productId));
-        model.addAttribute("categories", categoryService.findAllByCompanyId(COMPANY));
+        pictureService.deletePic(request, productId, null, pictureId, UPLOAD_DIR_PRODUCT);
 
         return "redirect:/admin/products/" + productId;
     }
@@ -97,50 +79,16 @@ public class ProductController {
             byId.setPrice(product.getPrice());
             byId.setCategory(product.getCategory());
 
-            product = service.save(byId, COMPANY);
+            product = service.save(byId, COMPANY_ID);
         } else {
-            product = service.save(product, COMPANY);
+            product = service.save(product, COMPANY_ID);
         }
 
-        saveImages(product, images);
+        if (images != null) {
+            pictureService.saveImages(request, product, null, images, UPLOAD_DIR_PRODUCT);
+        }
 
         return "redirect:/admin/products";
-    }
-
-    private void saveImages(Product product, MultipartFile[] images) {
-
-        for (MultipartFile image : images) {
-
-            if (image.isEmpty()) continue;
-
-            try {
-
-                String fileName = StringUtils.cleanPath(image.getOriginalFilename());
-
-                String realPathtoUploads = request.getServletContext().getRealPath(UPLOAD_DIR);
-                if (!new File(realPathtoUploads).exists()) {
-                    new File(realPathtoUploads).mkdir();
-                }
-                realPathtoUploads += "/" + product.getId();
-                if (!new File(realPathtoUploads).exists()) {
-                    new File(realPathtoUploads).mkdir();
-                }
-
-                String filePath = realPathtoUploads + "/" + fileName;
-                File dest = new File(filePath);
-                image.transferTo(dest);
-
-                Picture picture = new Picture();
-                picture.setProduct(product);
-                picture.setName(fileName);
-
-                pictureRepository.save(picture);
-
-            } catch (Exception e) {
-                System.out.printf(e.getMessage(), e);
-            }
-        }
-
     }
 
 }

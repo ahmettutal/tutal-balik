@@ -14,7 +14,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
             <h1>Bir şeyler ters gitti!</h1>
-            <h2>Mühendislerimiz çalışıyor :P</h2>
+            <h2>Mühendislerimiz çalışıyor :b</h2>
             <p>${message}</p>
         </div>
         <!-- /page content -->

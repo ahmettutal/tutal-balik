@@ -130,7 +130,7 @@
                                 <div class="col-md-3">
                                     <a href="delete-image/${picture.product.id}/${picture.id}" class="btn btn-app"><i
                                             class="fa fa-close"></i>Sil</a>
-                                    <img src="../../uploads/${picture.product.id}/${picture.name}"
+                                    <img src="../../productImages/${picture.product.id}/${picture.name}"
                                          class="img-circle profile_img" height="75" width="75">
                                 </div>
                             </c:forEach>

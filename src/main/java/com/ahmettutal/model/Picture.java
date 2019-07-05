@@ -16,6 +16,9 @@ public class Picture extends AuditModel {
     @ManyToOne
     private Product product;
 
+    @ManyToOne
+    private Category category;
+
     public Long getId() {
         return id;
     }
@@ -38,5 +41,13 @@ public class Picture extends AuditModel {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

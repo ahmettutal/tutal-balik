@@ -10,4 +10,8 @@ public interface PictureRepository extends BaseRepository<Picture, Long> {
 
     List<Picture> findAllByProductId(Long productId);
 
+    List<Picture> findAllByCategoryId(Long categoryId);
+
+    Picture findByCategoryId(Long categoryId);
+
 }
