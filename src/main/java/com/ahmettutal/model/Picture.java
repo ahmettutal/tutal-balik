@@ -1,6 +1,7 @@
 package com.ahmettutal.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "PICTURES")
@@ -11,6 +12,7 @@ public class Picture extends AuditModel {
     @SequenceGenerator(name = "picture_generator", sequenceName = "picture_generator", initialValue = 1000)
     private Long id;
 
+    @NotBlank
     private String name;
 
     @ManyToOne

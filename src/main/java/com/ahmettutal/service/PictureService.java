@@ -67,6 +67,9 @@ public class PictureService {
     public void deletePic(HttpServletRequest request, Long productId, Long categoryId, Long pictureId, String uploadDir) {
         try {
             Picture picture = repository.findById(pictureId).orElse(null);
+
+            if (picture == null) return;
+
             repository.deleteById(pictureId);
 
             String uploadFolder = request.getServletContext().getRealPath(uploadDir);
