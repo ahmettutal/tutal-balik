@@ -17,7 +17,7 @@
         <div id="responsive-nav">
             <!-- category nav -->
             <div class="category-nav">
-                <span class="category-header">Kategori <i class="fa fa-list"></i></span>
+                <span class="category-header">KATEGORİLER <i class="fa fa-list"></i></span>
                 <ul class="category-list">
 
                     <c:forEach var="category" items="${leftCategories}">
@@ -25,46 +25,53 @@
                         <li class="dropdown side-dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     ${category.name}
-                                <i class="fa fa-angle-right"></i>
+
+                                <c:if test="${subCategories.get(category.id).size() > 0}">
+                                    <i class="fa fa-angle-right"></i>
+                                </c:if>
                             </a>
 
-                            <div class="custom-menu">
+                            <c:if test="${subCategories.get(category.id).size() > 0}">
+                                <div class="custom-menu">
 
-                                <div class="row">
+                                    <div class="row">
 
 
-                                    <div class="col-md-8">
+                                        <div class="col-md-8">
 
-                                        <div class="row">
+                                            <div class="row">
 
-                                            <c:forEach var="subCategory" items="${subCategories.get(category.id)}">
+                                                <c:forEach var="subCategory" items="${subCategories.get(category.id)}">
 
-                                                <div class="col-md-6">
-                                                    <ul class="list-links">
-                                                        <li>
-                                                            <h3 class="list-links-title"></h3></li>
-                                                        <li><a href="#">${subCategory.name}</a></li>
-                                                    </ul>
-                                                    <hr class="hidden-md hidden-lg">
-                                                </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="list-links">
+                                                            <li>
+                                                                <h3 class="list-links-title"></h3></li>
+                                                            <li><a href="#">${subCategory.name}</a></li>
+                                                        </ul>
+                                                        <hr class="hidden-md hidden-lg">
+                                                    </div>
 
-                                            </c:forEach>
+                                                </c:forEach>
+
+                                            </div>
 
                                         </div>
 
+                                        <div class="col-md-4 hidden-sm hidden-xs">
+                                            <a class="banner banner-2" href="#">
+                                                <img src="../../categoryImages/${category.id}/${mainCategoryPictures.get(category.id).name}"
+                                                     alt="">
+                                                <div class="banner-caption">
+
+                                                </div>
+                                            </a>
+                                        </div>
+
                                     </div>
-
-                                    <div class="col-md-4 hidden-sm hidden-xs">
-                                        <a class="banner banner-2" href="#">
-                                            <img src="../../categoryImages/${category.id}/${mainCategoryPictures.get(category.id).name}" alt="">
-                                            <div class="banner-caption">
-
-                                            </div>
-                                        </a>
-                                    </div>
-
                                 </div>
-                            </div>
+                            </c:if>
+
                         </li>
 
                     </c:forEach>
