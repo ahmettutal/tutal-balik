@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductCategoryRepository extends BaseRepository<Category, Long> {
+public interface CategoryRepository extends BaseRepository<Category, Long> {
 
     List<Category> findAllByCompanyId(Long companyId);
 

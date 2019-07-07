@@ -2,9 +2,9 @@ package com.ahmettutal.controller.admin;
 
 import com.ahmettutal.core.AdminController;
 import com.ahmettutal.model.Product;
-import com.ahmettutal.service.ProductCategoryService;
-import com.ahmettutal.service.ProductService;
+import com.ahmettutal.service.CategoryService;
 import com.ahmettutal.service.PictureService;
+import com.ahmettutal.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +16,13 @@ import static com.ahmettutal.util.Constants.COMPANY_ID;
 import static com.ahmettutal.util.Constants.UPLOAD_DIR_PRODUCT;
 
 @AdminController
-public class ProductController {
+public class AdminProductController {
 
     @Autowired
     private ProductService service;
 
     @Autowired
-    private ProductCategoryService categoryService;
+    private CategoryService categoryService;
 
     @Autowired
     private PictureService pictureService;
@@ -37,6 +37,15 @@ public class ProductController {
         model.addAttribute("products", service.findAllByCompanyId(COMPANY_ID));
 
         return "admin/products";
+    }
+
+    @GetMapping("products/delete/{id}")
+    String delete(@PathVariable Long id) {
+
+        service.delete(id);
+        pictureService.deleteOfProducts(request, id);
+
+        return "redirect:/admin/categories";
     }
 
     @GetMapping("products/new")

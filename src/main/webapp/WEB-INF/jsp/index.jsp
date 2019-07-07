@@ -14,7 +14,7 @@
 <div id="navigation">
     <!-- container -->
     <div class="container">
-        <div id="responsive-nav">
+        <div id="responsive-nav ">
             <!-- category nav -->
             <div class="category-nav">
                 <span class="category-header">KATEGORİLER <i class="fa fa-list"></i></span>
@@ -80,238 +80,11 @@
             </div>
             <!-- /category nav -->
 
-
             <!-- menu nav -->
             <div class="menu-nav">
                 <span class="menu-header">Menu <i class="fa fa-bars"></i></span>
                 <ul class="menu-list">
-                    <li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                          aria-expanded="true">ÜRÜNLER<i
-                            class="fa fa-caret-down"></i></a>
-                        <div class="custom-menu">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">KAMIŞLAR</a></li>
-                                        <li><a href="#">MAKİNALAR</a></li>
-                                    </ul>
-                                    <hr class="hidden-md hidden-lg">
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">SUNİ YEMLER</a></li>
-                                        <li><a href="#">ÇAPARİLER VE KÖSTEKLER</a></li>
-                                    </ul>
-                                    <hr class="hidden-md hidden-lg">
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">MİSİNALAR</a></li>
-                                        <li><a href="#">İĞNELER</a></li>
-
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row hidden-sm hidden-xs">
-                                <div class="col-md-12">
-                                    <hr>
-                                    <a class="banner banner-1" href="#">
-                                        <img src="/img/okuma.png" alt="">
-                                        <div class="banner-caption text-center">
-                                            <h2 class="white-color"></h2>
-                                            <h3 class="white-color font-weak"></h3>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                          aria-expanded="true">AKSESUARLAR<i
-                            class="fa fa-caret-down"></i></a>
-                        <div class="custom-menu">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">KLİPS VE FIRDÖNDÜLER</a></li>
-                                        <li><a href="#">FOSFORLAR</a></li>
-                                        <li><a href="#">ŞAMANDIRALARR</a></li>
-                                    </ul>
-                                    <hr class="hidden-md hidden-lg">
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">ZİLLER</a></li>
-                                        <li><a href="#">KURŞUNLAR</a></li>
-                                    </ul>
-                                    <hr class="hidden-md hidden-lg">
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">FENER VE KAFA LAMBALARI</a></li>
-                                        <li><a href="#">KUTU VE ÇANTALAR</a></li>
-
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row hidden-sm hidden-xs">
-                                <div class="col-md-12">
-                                    <hr>
-                                    <a class="banner banner-1" href="#">
-                                        <img src="/img/çanta.jpg" alt="">
-                                        <div class="banner-caption text-center">
-                                            <
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                          aria-expanded="true">DİĞERLERİ<i class="fa fa-caret-down"></i></a>
-                        <div class="custom-menu">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">LRF MALZEMELERİ</a></li>
-                                        <li><a href="#">SPİN MALZEMELERİ</a></li>
-                                    </ul>
-                                    <hr class="hidden-md hidden-lg">
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">SUNİ YEMLER</a></li>
-                                        <li><a href="#">JİG HEAD</a></li>
-                                    </ul>
-                                    <hr class="hidden-md hidden-lg">
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">SURF MALZEMELERİ</a></li>
-                                        <li><a href="#">BOT MALZEMELERİ</a></li>
-
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row hidden-sm hidden-xs">
-                                <div class="col-md-12">
-                                    <hr>
-                                    <a class="banner banner-1" href="#">
-                                        <img src="/img/spn.jpg" alt="">
-                                        <div class="banner-caption text-center">
-
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="dropdown mega-dropdown full-width"><a class="dropdown-toggle" data-toggle="dropdown"
-                                                                     aria-expanded="true">SAZAN MALZEMELERİ <i
-                            class="fa fa-caret-down"></i></a>
-                        <div class="custom-menu">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="hidden-sm hidden-xs">
-                                        <a class="banner banner-1" href="#">
-                                            <img src="/img/pinter.jpg" alt="">
-                                            <div class="banner-caption text-center">
-
-                                            </div>
-                                        </a>
-                                        <hr>
-                                    </div>
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-
-                                        <li><a href="#">LİVARLAR VE PİNTERLER </a></li>
-                                        <li><a href="#">KEPCELER</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="hidden-sm hidden-xs">
-                                        <a class="banner banner-1" href="#">
-                                            <img src="/img/alarm.jpg" alt="">
-                                            <div class="banner-caption text-center">
-
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <hr>
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">SAZAN YEMLERİ </a></li>
-                                        <li><a href="#">ALARMLAR VE SWİNGERLAR</a></li>
-
-
-                                    </ul>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="hidden-sm hidden-xs">
-                                        <a class="banner banner-1" href="#">
-                                            <img src="/img/aksesuar-sazan.jpg" alt="">
-                                            <div class="banner-caption text-center">
-
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <hr>
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">ÇANTALAR VE KUTULAR</a></li>
-                                        <li><a href="#">SAZAN AKSESUARLARI</a></li>
-
-                                    </ul>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="hidden-sm hidden-xs">
-                                        <a class="banner banner-1" href="#">
-                                            <img src="/img/delici-bolici.jpg" alt="">
-                                            <div class="banner-caption text-center">
-
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <hr>
-                                    <ul class="list-links">
-                                        <li>
-                                            <h3 class="list-links-title"></h3></li>
-                                        <li><a href="#">SAZAN SEHPALARI</a></li>
-                                        <li><a href="#">BOİLİ TAKIMLARI</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-
+                    <li><a href="/products">Ürünler</a></li>
                     <li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
                                                              aria-expanded="true">KALSIN <i
                             class="fa fa-caret-down"></i></a>
@@ -326,6 +99,7 @@
                 </ul>
             </div>
             <!-- menu nav -->
+
         </div>
     </div>
     <!-- /container -->

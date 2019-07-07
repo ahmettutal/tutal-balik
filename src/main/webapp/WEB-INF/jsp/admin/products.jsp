@@ -32,7 +32,8 @@
                                 <table class="table table-striped jambo_table">
                                     <thead>
                                     <tr class="headings">
-                                        <th class="column-title"></th>
+                                        <th class="column-title" width="99"></th>
+                                        <th class="column-title" width="99"></th>
                                         <th class="column-title">İsim</th>
                                         <th class="column-title">Açıklama</th>
                                         <th class="column-title">Marka</th>
@@ -48,6 +49,7 @@
 
                                         <tr class="even pointer">
                                             <td><a href="products/${product.id}"><i class="fa fa-edit"></i> Düzenle</a></td>
+                                            <td><a href="products/delete/${product.id}"><i class="fa fa-remove"></i> Sil</a></td>
                                             <td><c:out value="${product.name}"/></td>
                                             <td><c:out value="${product.description}"/></td>
                                             <td><c:out value="${product.brand}"/></td>

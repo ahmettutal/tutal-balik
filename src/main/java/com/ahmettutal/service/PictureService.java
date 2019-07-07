@@ -4,6 +4,7 @@ import com.ahmettutal.model.Category;
 import com.ahmettutal.model.Picture;
 import com.ahmettutal.model.Product;
 import com.ahmettutal.repository.PictureRepository;
+import com.ahmettutal.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -96,12 +97,34 @@ public class PictureService {
         return repository.findAllByProductId(productId);
     }
 
+    public Picture findByProductId(Long productId) {
+        return repository.findByProductId(productId);
+    }
+
     public List<Picture> findAllByCategoryId(Long categoryId) {
         return repository.findAllByCategoryId(categoryId);
     }
 
     public Picture findByCategoryId(Long categoryId) {
         return repository.findByCategoryId(categoryId);
+    }
+
+    public void deleteOfProducts(HttpServletRequest request, Long productId) {
+
+        List<Picture> pictures = repository.findAllByProductId(productId);
+
+        if (pictures == null) return;
+
+        pictures.forEach(picture -> deletePic(request, productId, null, picture.getId(), Constants.UPLOAD_DIR_PRODUCT));
+    }
+
+    public void deleteOfCategories(HttpServletRequest request, Long categoryId) {
+
+        List<Picture> pictures = repository.findAllByCategoryId(categoryId);
+
+        if (pictures == null) return;
+
+        pictures.forEach(picture -> deletePic(request, null, categoryId, picture.getId(), Constants.UPLOAD_DIR_CATEGORY));
     }
 
 }

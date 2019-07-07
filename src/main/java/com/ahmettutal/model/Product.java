@@ -11,7 +11,7 @@ public class Product extends AuditModel {
 
     @Id
     @GeneratedValue(generator = "product_generator")
-    @SequenceGenerator(name = "product_generator", sequenceName = "product_generator", initialValue = 1000)
+    @SequenceGenerator(name = "product_generator", sequenceName = "product_generator", initialValue = 5000)
     private Long id;
 
     @NotBlank
@@ -32,6 +32,8 @@ public class Product extends AuditModel {
 
     private BigDecimal price;
 
+    @Transient
+    private Picture picture;
 
     public Long getId() {
         return id;
@@ -95,5 +97,13 @@ public class Product extends AuditModel {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public Picture getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Picture picture) {
+        this.picture = picture;
     }
 }

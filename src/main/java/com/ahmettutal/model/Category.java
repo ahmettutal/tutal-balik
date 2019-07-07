@@ -9,7 +9,7 @@ public class Category extends AuditModel {
 
     @Id
     @GeneratedValue(generator = "product_category_generator")
-    @SequenceGenerator(name = "product_category_generator", sequenceName = "product_category_generator", initialValue = 1000)
+    @SequenceGenerator(name = "product_category_generator", sequenceName = "product_category_generator", initialValue = 1200)
     private Long id;
 
     @NotBlank

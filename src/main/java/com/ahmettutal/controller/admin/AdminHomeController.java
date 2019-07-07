@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @AdminController
-public class HomeController {
+public class AdminHomeController {
 
     @GetMapping
     public String get(Model model) {

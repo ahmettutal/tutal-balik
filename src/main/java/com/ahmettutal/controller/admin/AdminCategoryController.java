@@ -3,7 +3,7 @@ package com.ahmettutal.controller.admin;
 import com.ahmettutal.core.AdminController;
 import com.ahmettutal.exception.InvalidCategoryException;
 import com.ahmettutal.model.Category;
-import com.ahmettutal.service.ProductCategoryService;
+import com.ahmettutal.service.CategoryService;
 import com.ahmettutal.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -18,10 +18,10 @@ import static com.ahmettutal.util.Constants.COMPANY_ID;
 import static com.ahmettutal.util.Constants.UPLOAD_DIR_CATEGORY;
 
 @AdminController
-public class CategoryController {
+public class AdminCategoryController {
 
     @Autowired
-    private ProductCategoryService service;
+    private CategoryService service;
 
     @Autowired
     private PictureService pictureService;
@@ -55,6 +55,7 @@ public class CategoryController {
     String delete(Model model, @PathVariable Long id) {
 
         service.delete(id);
+        pictureService.deleteOfCategories(request, id);
 
         return "redirect:/admin/categories";
     }

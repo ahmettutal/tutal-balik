@@ -9,7 +9,7 @@ public class Picture extends AuditModel {
 
     @Id
     @GeneratedValue(generator = "picture_generator")
-    @SequenceGenerator(name = "picture_generator", sequenceName = "picture_generator", initialValue = 1000)
+    @SequenceGenerator(name = "picture_generator", sequenceName = "picture_generator", initialValue = 2000)
     private Long id;
 
     @NotBlank

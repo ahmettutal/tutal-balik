@@ -3,17 +3,17 @@ package com.ahmettutal.service;
 import com.ahmettutal.exception.ResourceNotFoundException;
 import com.ahmettutal.model.Category;
 import com.ahmettutal.repository.CompanyRepository;
-import com.ahmettutal.repository.ProductCategoryRepository;
+import com.ahmettutal.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ProductCategoryService {
+public class CategoryService {
 
     @Autowired
-    private ProductCategoryRepository repository;
+    private CategoryRepository repository;
 
     @Autowired
     private CompanyRepository companyRepository;
