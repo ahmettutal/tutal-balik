@@ -1,6 +1,7 @@
 package com.ahmettutal.service;
 
 import com.ahmettutal.exception.ResourceNotFoundException;
+import com.ahmettutal.model.Category;
 import com.ahmettutal.model.Product;
 import com.ahmettutal.repository.CompanyRepository;
 import com.ahmettutal.repository.ProductRepository;
@@ -21,6 +22,14 @@ public class ProductService {
 
     public List<Product> findAllByCompanyId(Long companyId) {
         return repository.findAllByCompanyId(companyId);
+    }
+
+    public List<Product> findAllByCompanyIdOrderById(Long companyId) {
+        return repository.findAllByCompanyIdOrderById(companyId);
+    }
+
+    public List<Product> findAllByCategory(Category category) {
+        return repository.findAllByCategory(category);
     }
 
     public Product findById(Long id) {

@@ -2,8 +2,8 @@ package com.ahmettutal.service;
 
 import com.ahmettutal.exception.ResourceNotFoundException;
 import com.ahmettutal.model.Category;
-import com.ahmettutal.repository.CompanyRepository;
 import com.ahmettutal.repository.CategoryRepository;
+import com.ahmettutal.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +23,20 @@ public class CategoryService {
         return repository.findAllByCompanyId(companyId);
     }
 
+    public Category findByLink(String link) {
+        return repository.findByLink(link);
+    }
+
+    public List<Category> findAllByCompanyIdOrderById(Long companyId) {
+        return repository.findAllByCompanyIdOrderById(companyId);
+    }
+
     public List<Category> findAllByParent(Category parent) {
         return repository.findAllByParent(parent);
+    }
+
+    public Category findByParentAndLink(Category parent, String link) {
+        return repository.findByParentAndLink(parent, link);
     }
 
     public List<Category> findAllByCompanyIdAndParent(Long companyId, Category parent) {

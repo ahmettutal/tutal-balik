@@ -15,6 +15,9 @@ public class Category extends AuditModel {
     @NotBlank
     private String name;
 
+    @NotBlank
+    private String link;
+
     @ManyToOne
     private Company company;
 
@@ -35,6 +38,14 @@ public class Category extends AuditModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public Company getCompany() {

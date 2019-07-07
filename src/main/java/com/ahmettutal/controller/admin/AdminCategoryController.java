@@ -33,7 +33,7 @@ public class AdminCategoryController {
     @GetMapping("categories")
     String list(Model model) {
 
-        model.addAttribute("categories", service.findAllByCompanyId(COMPANY_ID));
+        model.addAttribute("categories", service.findAllByCompanyIdOrderById(COMPANY_ID));
 
         return "admin/categories";
     }
@@ -95,6 +95,7 @@ public class AdminCategoryController {
             Category byId = service.findById(category.getId());
 
             byId.setName(category.getName());
+            byId.setLink(category.getLink());
             byId.setParent(category.getParent());
 
             service.save(byId, COMPANY_ID);

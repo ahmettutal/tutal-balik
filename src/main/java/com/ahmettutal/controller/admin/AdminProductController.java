@@ -34,7 +34,7 @@ public class AdminProductController {
     @GetMapping("products")
     String list(Model model) {
 
-        model.addAttribute("products", service.findAllByCompanyId(COMPANY_ID));
+        model.addAttribute("products", service.findAllByCompanyIdOrderById(COMPANY_ID));
 
         return "admin/products";
     }

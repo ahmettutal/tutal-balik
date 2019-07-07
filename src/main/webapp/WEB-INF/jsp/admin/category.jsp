@@ -33,11 +33,21 @@
 
                                 <form:hidden path="id"/>
 
-
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Kategori İsmi</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <form:input path="name" class="form-control col-md-7 col-xs-12"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="link">Kategori Link</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                        <c:if test="${category.parent != null}">
+                                            <form:input path="parent.link" readonly="true" class="form-control col-6 col-md-6 col-xs-6"/>
+                                        </c:if>
+                                        <form:input path="link" class="form-control col-md-7 col-xs-12"/>
                                     </div>
                                 </div>
 
