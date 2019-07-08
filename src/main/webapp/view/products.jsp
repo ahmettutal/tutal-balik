@@ -86,8 +86,8 @@
                                 <div class="product product-single">
                                     <div class="product-thumb">
 
-                                        <c:if test="${product.picture != null}">
-                                            <img src="../../productImages/${product.id}/${product.picture.name}" alt="">
+                                        <c:if test="${product.pictures != null and product.pictures.size() > 0}">
+                                            <img src="../../productImages/${product.id}/${product.pictures.get(0).name}" alt="">
                                         </c:if>
 
                                     </div>

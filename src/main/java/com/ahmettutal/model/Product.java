@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "PRODUCTS")
@@ -33,7 +34,7 @@ public class Product extends AuditModel {
     private BigDecimal price;
 
     @Transient
-    private Picture picture;
+    private List<Picture> pictures;
 
     public Long getId() {
         return id;
@@ -99,11 +100,11 @@ public class Product extends AuditModel {
         this.price = price;
     }
 
-    public Picture getPicture() {
-        return picture;
+    public List<Picture> getPictures() {
+        return pictures;
     }
 
-    public void setPicture(Picture picture) {
-        this.picture = picture;
+    public void setPictures(List<Picture> pictures) {
+        this.pictures = pictures;
     }
 }

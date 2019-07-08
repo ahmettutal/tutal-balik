@@ -6,7 +6,7 @@
     <groupId>com.ahmettutal</groupId>
     <artifactId>tutal-balik</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>tutal-balik</name>
     <description>tutal balik</description>

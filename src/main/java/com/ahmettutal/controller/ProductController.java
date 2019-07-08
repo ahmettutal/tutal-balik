@@ -38,7 +38,7 @@ public class ProductController {
 
         List<Product> products = service.findAllByCompanyId(Constants.COMPANY_ID);
 
-        products.forEach(product -> product.setPicture(pictureService.findByProductId(product.getId())));
+        products.forEach(product -> product.setPictures(pictureService.findAllByProductId(product.getId())));
 
         model.addAttribute("products", products);
 
@@ -55,7 +55,7 @@ public class ProductController {
 
         List<Product> products = service.findAllByCategory(subCategory);
 
-        products.forEach(product -> product.setPicture(pictureService.findByProductId(product.getId())));
+        products.forEach(product -> product.setPictures(pictureService.findAllByProductId(product.getId())));
 
         model.addAttribute("products", products);
 
