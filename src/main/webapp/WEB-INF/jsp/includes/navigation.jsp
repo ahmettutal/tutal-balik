@@ -38,7 +38,7 @@
                                                             <li>
                                                                 <h3 class="list-links-title"></h3></li>
                                                             <li>
-                                                                <a href="${category.link}${subCategory.link}">${subCategory.name}</a>
+                                                                <a href="/urunler${category.link}${subCategory.link}">${subCategory.name}</a>
                                                             </li>
                                                         </ul>
                                                         <hr class="hidden-md hidden-lg">

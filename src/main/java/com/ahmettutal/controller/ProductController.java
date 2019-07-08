@@ -45,7 +45,7 @@ public class ProductController {
         return "products";
     }
 
-    @GetMapping("/{categoryLink}/{subCategoryLink}")
+    @GetMapping("/urunler/{categoryLink}/{subCategoryLink}")
     public String categoryList(Model model, @PathVariable String categoryLink, @PathVariable String subCategoryLink) {
 
         homeService.prepareCategories(model);
